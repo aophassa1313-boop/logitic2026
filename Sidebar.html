@@ -1,0 +1,100 @@
+<div id="sidebarBackdrop" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/40 backdrop-blur-[1px] z-[140] hidden md:hidden transition-opacity"></div>
+
+<aside id="sideBarMenu" class="bg-slate-900 text-slate-200 w-64 flex-shrink-0 flex flex-col border-r border-slate-800 fixed md:static inset-y-0 start-0 z-[150] md:z-auto transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
+  
+  <div class="p-5 bg-slate-950 flex items-center justify-between border-b border-slate-800">
+    <div class="flex items-center gap-2.5">
+      <div class="p-2 bg-blue-600 text-white rounded-lg"><i class="fa fa-book-open"></i></div>
+      <div>
+        <div class="font-bold text-sm text-white leading-tight">ระบบสารบรรณ</div>
+        <div class="text-[10px] text-slate-400">ทะเบียนรับและติดตามงาน</div>
+      </div>
+    </div>
+    <button onclick="toggleSidebar()" class="md:hidden text-slate-400 hover:text-slate-200 p-2"><i class="fa fa-times text-xl"></i></button>
+  </div>
+
+  <div class="p-4 border-b border-slate-800 bg-slate-900/50 flex items-center gap-3 cursor-pointer hover:bg-slate-800/60 transition" onclick="openEditProfile(); toggleSidebar();">
+    <img id="displayProfilePic" src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full object-cover border-2 border-slate-700 bg-white">
+    <div class="overflow-hidden">
+      <div class="font-bold text-xs text-white truncate" id="displayUserName">ชื่อผู้ใช้</div>
+      <div class="text-[10px] text-blue-400 truncate" id="displayUserDept">แผนก</div>
+    </div>
+  </div>
+
+  <nav class="p-4 flex-1 space-y-1">
+
+  <div id="menuReport">
+    <button onclick="switchView('register'); toggleSidebar();" id="btnTabRegister" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-briefcase text-base w-5 text-center"></i>รายงานสรุป
+    </button>
+  </div>
+    
+  <div id="menuRegister">
+    <button onclick="switchView('myTasks'); toggleSidebar();" id="btnTabMyTasks" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium bg-blue-600 text-white transition">
+      <i class="fa-solid fa-folder-open text-base w-5 text-center"></i>ทะเบียนรับหนังสือ
+    </button>
+  </div>
+
+  <div id="menuOutgoing">
+    <button onclick="switchView('outgoing'); toggleSidebar();" id="btnTabOutgoing" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-paper-plane text-base w-5 text-center"></i>ทะเบียนส่งหนังสือ
+    </button>
+  </div>
+
+  <div id="menuSummary">
+    <button onclick="switchView('summary'); toggleSidebar();" id="btnTabSummary" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-chart-pie text-base w-5 text-center"></i>ติดตามงานรายแผนก
+    </button>
+  </div>
+
+  <div id="menuDaily">
+    <button onclick="switchView('daily'); toggleSidebar();" id="btnTabDaily" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-calendar-day text-base w-5 text-center"></i>สรุปงานประจำวัน
+    </button>
+  </div>
+
+  <div id="menuControl">
+    <button onclick="switchView('control'); toggleSidebar();" id="btnTabControl" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-address-book text-base w-5 text-center"></i>บัญชีคุม สป. ทั่วไป
+    </button>
+  </div>
+
+  <div id="menuRepair">
+    <button onclick="switchView('repair'); toggleSidebarCheck();" id="btnTabRepair" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-screwdriver-wrench text-base w-5 text-center text-orange-400"></i>ทะเบียนส่งซ่อม
+    </button>
+  </div>
+
+  <div id="menuFuel">
+    <button onclick="switchView('fuel'); toggleSidebar();" id="btnTabFuel" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-4 border-t border-slate-700/50 pt-4">
+      <i class="fa-solid fa-gas-pump text-base w-5 text-center text-amber-500"></i>คลังน้ำมันและยานพาหนะ
+    </button>
+  </div>
+
+  <div id="menuUsage">
+    <button onclick="switchView('usage'); toggleSidebar();" id="btnTabUsage" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition mt-1">
+      <i class="fa-solid fa-car text-base w-5 text-center text-sky-400"></i>บันทึกใช้รถประจำวัน
+    </button>
+  </div>
+
+  <div id="menuAdminDept">
+    <button id="btnAdminDeptMenu" onclick="openDeptManagementModal(); toggleSidebar();" class="w-full hidden items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">
+      <i class="fa-solid fa-building-flag text-base w-5 text-center"></i>ตั้งค่าเพิ่ม/ลดแผนก
+    </button>
+  </div>
+
+  <div id="menuAdminUsers">
+    <button id="btnAdminUsersMenu" onclick="openUserManagementModal(); toggleSidebar();" class="w-full hidden items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">
+      <i class="fa-solid fa-users text-base w-5 text-center"></i>ตั้งค่าจัดการสมาชิก
+    </button>
+  </div>
+
+</nav>
+
+  <div class="p-4 border-t border-slate-800">
+    <button onclick="logout()" class="w-full bg-slate-800 hover:bg-rose-950 hover:text-rose-400 text-slate-400 px-4 py-2.5 rounded-lg text-sm font-semibold transition flex items-center justify-center gap-2">
+      <i class="fa-solid fa-sign-out-alt"></i> ออกจากระบบ
+    </button>
+  </div>
+  
+</aside>
